@@ -313,6 +313,7 @@ module.exports = function (webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
+        'react/jsx-runtime': path.resolve(__dirname, '../src/react/packages/react-dom/src/client'),
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           'react-dom$': 'react-dom/profiling',
@@ -753,7 +754,7 @@ module.exports = function (webpackEnv) {
     performance: false,
     externals: {
       react: 'React',
-      'react-dom': 'ReactDOM'
+      'react-dom/client': 'ReactDOM'
     }
   };
 };

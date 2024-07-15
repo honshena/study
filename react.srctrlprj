@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+    <source_groups>
+        <source_group_486d9b42-1b9f-4cc8-9bde-3cb779a6198f>
+            <custom_command>npm run start %{SOURCE_FILE_PATH}</custom_command>
+            <name>Custom Command Source Group</name>
+            <run_in_parallel>0</run_in_parallel>
+            <source_paths>
+                <source_path>src/index.js</source_path>
+            </source_paths>
+            <status>enabled</status>
+            <type>Custom Command Source Group</type>
+        </source_group_486d9b42-1b9f-4cc8-9bde-3cb779a6198f>
+    </source_groups>
+    <version>8</version>
+</config>

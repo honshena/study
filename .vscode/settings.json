@@ -2,4 +2,5 @@
     "typescript.validate.enable": false,
     "javascript.validate.enable": false,
     "compile-hero.disable-compile-files-on-did-save-code": false,
+    "eslint.nodeEnv": "development"
 }
