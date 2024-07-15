@@ -9925,13 +9925,15 @@ var Sync = maxSigned31BitInt;
 
 var UNIT_SIZE = 10;
 var MAGIC_NUMBER_OFFSET = maxSigned31BitInt - 1;
-
+// expirationTimeToMs(msToExpirationTime(ms))后的数字抹平了10ms的误差
+// 例如ms=1550时和ms=1559得到的ms都是1560
 // 1 unit of expiration time represents 10ms.
 function msToExpirationTime(ms) {
+  // 这里是避免出现结果为零的情况
   // Always add an offset so that we don't clash with the magic number for NoWork.
   return MAGIC_NUMBER_OFFSET - (ms / UNIT_SIZE | 0);
 }
-
+// 将expiration time 转换为ms
 function expirationTimeToMs(expirationTime) {
   return (MAGIC_NUMBER_OFFSET - expirationTime) * UNIT_SIZE;
 }
@@ -20404,7 +20406,7 @@ function createContainer(containerInfo, isConcurrent, hydrate) {
 }
 
 function updateContainer(element, container, parentComponent, callback) {
-  var current$$1 = container.current;
+  var current$$1 = container.current; //RootFiber
   var currentTime = requestCurrentTime();
   var expirationTime = computeExpirationForFiber(currentTime, current$$1);
   return updateContainerAtExpirationTime(element, container, parentComponent, expirationTime, callback);
